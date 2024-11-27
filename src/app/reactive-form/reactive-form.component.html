@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="col-6 mx-auto shadow p-3">
+        <h3 class="text-success text-center"> Reactive Form</h3>
+    <div>
+        <form [formGroup]="formone">
+            <input type="text" class="form-control my-2" placeholder="Firstname" formControlName="fname" name="firstname" [class.is-valid]="formone.get('fname')?.valid && formone.get('fname')?.dirty" [class.is-invalid]="formone.get('fname')?.invalid && formone.get('fname')?.dirty">
+            <div *ngIf="formone.get('fname')?.invalid && formone.get('fname')?.dirty">
+                <span class="text-danger" *ngIf="formone.get('fname')?.getError('minlength')">The minimum length is 5</span>
+                 <span class="text-danger" *ngIf="formone.get('fname')?.getError('required')">This field is required</span>
+            </div>
+            <input type="text" class="form-control my-2" placeholder="Phonenumber" formControlName="pnumber" name="phonenumber"  [class.is-valid]="formone.get('pnumber')?.valid && formone.get('pnumber')?.dirty" [class.is-invalid]="formone.get('pnumber')?.invalid && formone.get('pnumber')?.dirty">
+            <div *ngIf="formone.get('pnumber')?.invalid && formone.get('pnumber')?.dirty">
+                <span class="text-danger" *ngIf="formone.get('pnumber')?.getError('maxlength')">The miximum length is 10</span>
+                <span class="text-danger" *ngIf="formone.get('pnumber')?.getError('required')">This field is required</span>
+            </div>
+            <input type="text" class="form-control my-2" placeholder="Email" formControlName="email" name="email" [class.is-valid]="formone.get('email')?.valid && formone.get('email')?.dirty" [class.is-invalid]="formone.get('email')?.invalid && formone.get('email')?.dirty">
+            <div *ngIf="formone.get('email')?.invalid && formone.get('email')?.dirty">
+                <span class="text-danger" *ngIf="formone.get('email')?.getError('required')">This field is required</span>
+            </div>
+
+            <input type="number" class="form-control my-2" placeholder="Age" formControlName="age" name="age" [class.is-valid]="formone.get('age')?.valid && formone.get('age')?.dirty" [class.is-invalid]="formone.get('age')?.invalid && formone.get('age')?.dirty">
+            <div *ngIf="formone.get('age')?.invalid && formone.get('age')?.dirty">
+                <span class="text-danger" *ngIf="formone.get('age')?.getError('min')">Sorry, you are below the required age</span>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="check" formControlName="check">
+            <span class="text-danger" *ngIf="formone.value['check']==false">
+                    {{msg}}
+            </span>
+            </div>
+            
+            <button class="btn btn-outline-success w-100" (click)="reactive()" [disabled]="formone.invalid || !formone.get('check')?.value ">submit</button>
+        </form>
+    </div>
+        
+    </div>
+    
+</div>

@@ -1,0 +1,18 @@
+<li *ngFor="let user of users;" class="list-group-item d-flex justify-content-between align-items-center mb-2 list">
+    <div (click)="run(user)" class="my-2">
+ 
+      <strong>Name: {{ user.Lastname }}</strong><br>
+      
+      <strong>Phone Number: {{ user.Phonenumber }}</strong>
+    </div>
+
+    <hr>
+
+
+  
+  </li>
+
+  <div class="col-8 shadow mt-3">
+    <app-classchild></app-classchild>
+</div>
+

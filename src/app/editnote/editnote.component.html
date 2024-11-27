@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="col-6 mx-auto shadow p-3">
+        <h3 class="text-success text-center">EditNote</h3>
+        <div>
+            <form [formGroup]="formnote">
+                <input type="text" class="form-control my-2" placeholder="Title" formControlName="title" name="title">
+                <textarea class="my-2 form-control" placeholder="details" formControlName="details" name="details"></textarea>
+                <button  class="btn btn-outline-success w-100" (click)="edit()">Edit</button>
+            </form>
+        </div>
+    </div>
+    </div>

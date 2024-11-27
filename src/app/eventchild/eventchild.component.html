@@ -1,0 +1,8 @@
+<!-- <p>eventchild works!</p> -->
+<div class="container">
+    <div class="col-8 mx-auto shadow p-4">
+        <p class="text-success text-center">Message from the parent: {{sendmsg}}</p>
+        <input type="text" class="form-control my-2" [(ngModel)]="msgtoparent">
+        <button (click)="send()" class="btn btn-outline-primary">send msg to parent</button>
+    </div>
+</div>

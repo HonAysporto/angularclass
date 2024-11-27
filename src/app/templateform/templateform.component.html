@@ -1,0 +1,41 @@
+
+
+<div class="container">
+    <div class="col-8 mx-auto shadow p-4 rounded">
+        <h3 class="text-primary text-center">Template Driven Form Validation</h3>
+        <form #myForm="ngForm">
+            <input type="text" class="form-control my-2" placeholder="Enter First Name" [(ngModel)]="firstname" name="fname" #fname="ngModel" minlength="5" required="true" [class.is-valid]="fname.valid && fname.dirty" [class.is-invalid]="fname.invalid && fname.dirty">
+            <div *ngIf="fname.invalid && fname.dirty">
+                <span class="text-danger" *ngIf="fname.hasError('minlength')">The minimum character is five</span>
+                <span class="text-danger" *ngIf="fname.hasError('required')">Enter your Firstname</span>
+            </div>
+            <input type="text" class="form-control my-2" placeholder="Enter Last Name" [(ngModel)]="lastname" name="lname" #lname="ngModel" minlength="5" maxlength="12" required="true" [class.is-valid]="lname.valid && lname.dirty" [class.is-invalid]="lname.invalid && lname.dirty">
+            <div *ngIf="lname.invalid && lname.dirty">
+                <span class="text-danger" *ngIf="lname.hasError('minlength')">The minimum character is five</span>
+                <span class="text-danger" *ngIf="lname.hasError('maxlength')">The maximum character is twelve</span>
+                <span class="text-danger" *ngIf="lname.hasError('required')">Enter your Lastname</span>
+            </div>
+
+            <input type="text" class="form-control my-2" placeholder="Enter Phonenumber" [(ngModel)]="phonenumber" name="pnumber" #pnumber="ngModel" required="true">
+            <div *ngIf="pnumber.invalid && pnumber.dirty">
+                <span class="text-danger" *ngIf="pnumber.hasError('required')">Enter your Lastname</span>
+            </div>
+
+            <input type="number" class="form-control my-2" placeholder="Enter Age" [(ngModel)]="agee" name="age" #age="ngModel" required="true" min="18" max="40" [class.is-invalid]="age.invalid && age.dirty"  [class.is-valid]="age.valid && age.dirty">
+            <div *ngIf="age.invalid && age.dirty">
+                <span class="text-danger" *ngIf="age.hasError('required')">Enter you age</span>
+                <span class="text-danger" *ngIf="age.hasError('min')">You must be above 18 to register</span>
+                <span class="text-danger" *ngIf="age.hasError('max')">You must be below 40 to register</span>
+            </div>
+
+            <div class="form-check ">
+                <input type="checkbox" class="form-check-input" [(ngModel)]="agreeed" name="agreed" #agreed="ngModel">
+                <label for="form-check-label"> I agree to terms and conditions</label>
+            </div>
+
+
+            <button class="btn btn-outline-primary w-100" [disabled]="myForm.invalid || !agreeed"> Submit form</button>
+            
+        </form>
+    </div>
+</div>

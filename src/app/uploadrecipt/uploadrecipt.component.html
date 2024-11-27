@@ -1,0 +1,31 @@
+<div class="container py-5">
+ 
+    <div class="mx-auto shadow col-md-6 p-4 rounded bg-light">
+      <h5 class="text-primary text-center mb-4">Upload Your Payment Receipt</h5>
+      <input (change)="onImageSelected($event)" type="file" class="form-control mb-3">
+      <button (click)="upload()" class="btn btn-outline-primary w-100">Upload</button>
+    </div>
+  
+ 
+    <div class="row mt-5">
+      <div *ngFor="let receipt of personalrecipts" class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+          <img [src]="receipt.image" alt="Receipt Image" class="card-img-top" style="max-height: 200px; object-fit: cover;">
+          <div class="card-body">
+            <h6 class="card-title text-primary">Receipt ID: {{receipt.id}}</h6>
+            <p class="card-text">
+              <strong>Status:</strong>   <span class="badge" 
+              [ngClass]="{
+                'bg-success': receipt.status === 'approved', 
+                'bg-warning text-dark': receipt.status === 'unaproved', 
+                'bg-danger': receipt.status === 'rejected'
+              }">
+          {{receipt.status}}
+        </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

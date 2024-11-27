@@ -1,0 +1,20 @@
+<div>
+    <input type="text" placeholder="Product" [(ngModel)]="product">
+    <input type="text" placeholder="Description" [(ngModel)]="description">
+    <input type="number" placeholder="Quantity" [(ngModel)]="quantity">
+    <button (click)="add()">Add Product</button>
+</div>
+
+
+<div>
+    <h2>Rectangular Products</h2>
+    <ol>
+      <li *ngFor="let group of groups; let i = index">
+        <strong>Product:</strong> {{ group.Product }} <br>
+        <strong>Description:</strong> {{ group.Description  }} <br>
+        <strong>Quantity:</strong> {{ group.Quantity  }} <br>
+        
+        <button (click)="delete(i)">delete</button>
+    </li>
+    </ol>
+  </div>

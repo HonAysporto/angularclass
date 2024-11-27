@@ -1,0 +1,25 @@
+
+<div class="container">
+    <div class="col-7 mx-auto shadow p-4">
+        <h3 class="text-success">Admin signup page</h3>
+        <hr class="m-5">
+        <p>{{feedbackmsg}}</p>
+        <input type="text" class="form-control my-2 shadow-none" placeholder="Fullname" [(ngModel)]="fullname">
+        <input type="text" class="form-control my-2 shadow-none" placeholder="Email" [(ngModel)]="email">
+        <input type="text" class="form-control my-2 shadow-none" placeholder="Password" [(ngModel)]="password">
+        <input type="text" class="form-control my-2 shadow-none" placeholder="Phonenumber" [(ngModel)]="phonenumber">
+       
+          <label for="gender">Gender</label>
+          <select class="form-select my-2" id="gender" name="gender" [(ngModel)]="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+          <input type="date" class="form-control my-2 shadow-none" placeholder="Date" [(ngModel)]="date">
+        <button (click)="signup()" class="btn btn-outline-success w-100"> Sign up</button>
+
+       
+    </div>
+</div>
+
+
+

@@ -1,0 +1,119 @@
+<div class="container my-5">
+
+    <div class="mx-auto col-md-6 shadow-lg p-4 rounded bg-light">
+        <h3 class="text-center mb-4 text-primary">Personal Notes</h3>
+
+     
+        <input 
+            type="text" 
+            class="form-control mb-3" 
+            placeholder="Note Title" 
+            [(ngModel)]="ntitle"
+        >
+
+     
+        <textarea 
+            class="form-control mb-3" 
+            placeholder="Note Details" 
+            [(ngModel)]="ndetails"
+        ></textarea>
+
+      
+        <button 
+            class="btn btn-success w-100" 
+            (click)="save()"
+        >
+            Save Note
+        </button>
+    </div>
+
+
+    <div class="mt-5">
+        <div 
+            *ngFor="let note of notes; let i = index" 
+            class="card shadow-sm mb-4"
+        >
+            <div class="card-body">
+           
+                <h5 class="card-title text-primary">{{ note.title }}</h5>
+               
+                <p class="card-text text-muted">{{ note.details }}</p>
+
+         
+                <div class="d-flex justify-content-end gap-2">
+                   
+                    <button 
+                        class="btn btn-outline-warning btn-sm" 
+                        (click)="edit(i)"
+                    >
+                        Edit
+                    </button>
+                 
+                    <button 
+                        class="btn btn-outline-danger btn-sm" 
+                        (click)="delete(i)"
+                    >
+                        Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div 
+    class="modal fade" 
+    id="editNoteModal" 
+    tabindex="-1" 
+    aria-labelledby="editNoteModalLabel" 
+    aria-hidden="true"
+>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editNoteModalLabel">Edit Note</h5>
+                <button 
+                    type="button" 
+                    class="btn-close" 
+                    data-bs-dismiss="modal" 
+                    aria-label="Close"
+                ></button>
+            </div>
+            <div class="modal-body">
+                <!-- Edit Title -->
+                <input 
+                    type="text" 
+                    class="form-control mb-3" 
+                    [(ngModel)]="editTitle" 
+                    placeholder="Edit Note Title"
+                >
+
+                <!-- Edit Details -->
+                <textarea 
+                    class="form-control mb-3" 
+                    [(ngModel)]="editDetails" 
+                    placeholder="Edit Note Details"
+                ></textarea>
+            </div>
+            <div class="modal-footer">
+                <button 
+                    type="button" 
+                    class="btn btn-secondary" 
+                    data-bs-dismiss="modal"
+                >
+                    Cancel
+                </button>
+                <button 
+                    type="button" 
+                    class="btn btn-primary" 
+                    (click)="updateNote()"
+                    data-bs-dismiss="modal"
+                >
+                    Save Changes
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+@keyframes upDownAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px); /* Move up by 10px */
+    }
+    100% {
+        transform: translateY(0); /* Move back to original position */
+    }
+}
+
+.img-animated {
+    animation: upDownAnimation 3s ease-in-out infinite; /* 3s duration, ease-in-out timing function, infinite loop */
+}

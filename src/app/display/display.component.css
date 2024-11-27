@@ -1,0 +1,8 @@
+.list {
+    cursor: pointer;
+    /* border: 1px solid green; */
+}
+
+.list:hover{
+    background-color: blue;
+}

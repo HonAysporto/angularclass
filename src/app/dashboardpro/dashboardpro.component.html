@@ -1,0 +1,56 @@
+<app-studentdashboardnav></app-studentdashboardnav>
+<div class="container">
+    <p>Welcome: {{userinfo.fullname}}</p>
+</div>
+
+
+<div class="container-fluid mt-4">
+
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Personal Information</h5>
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Full Name:</strong> {{userinfo.fullname}}</li>
+              <li class="list-group-item"><strong>Email:</strong> {{userinfo.email}}</li>
+              <li class="list-group-item"><strong>Phone Number:</strong> {{userinfo.phonenumber}}</li>
+              <li class="list-group-item"><strong>Class:</strong> {{userinfo.class}}</li>
+              <li class="list-group-item"><strong>Department:</strong> {{userinfo.dept}}</li>
+              <li class="list-group-item"><strong>Date of birth:</strong> {{userinfo.date}}</li>
+              <li class="list-group-item"><strong>Gender:</strong> {{userinfo.gender}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Student Statistics</h5>
+            <p class="card-text">Student statistics, progress will show here soon.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Upcoming Exams</h5>
+            <p class="card-text">Coming soon</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<div class="container mt-5">
+    <h6 class="text-success ">Change profile picute</h6>
+    <input type="file" (change)="onImageSelected($event)">
+    <button class="btn btn-outline-success" (click)="upload()">upload</button>
+</div>
+   
+  </div>
+  

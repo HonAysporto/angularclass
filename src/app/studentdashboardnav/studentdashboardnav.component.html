@@ -1,0 +1,46 @@
+<div style="position: fixed; top: 0; z-index: 100; width: 100%;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand text-success fw-bolder" href="#">Student Dashboard</a>
+
+
+      <div class="d-flex ms-auto align-items-center">
+   
+        <img [src]="profileImage ? profileImage : 'https://img.icons8.com/?size=50&id=12438&format=png'"  alt="Profile Picture" class="rounded-circle" width="40" height="40">
+        <span class="ms-2">{{studentdetails.fullname}}</span>
+
+
+        <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      
+      <!-- Collapse Navbar Content -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="viewclassmates">View classmates</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="changepassword">Change Password</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="addcourses">Register courses</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="editprofile">Edit profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="notekeep">Note Keep</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="uploadrecipt">Upload Recipt</a>
+          </li>
+          <li class="nav-item">
+            <button (click)="signout()" class="btn btn-outline-danger">Sign Out</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>

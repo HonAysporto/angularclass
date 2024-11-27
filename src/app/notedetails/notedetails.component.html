@@ -1,0 +1,22 @@
+<div class="container mt-5">
+
+    <div class="col-12 col-md-6 mx-auto shadow p-4 rounded-lg bg-light">
+
+        <h3 class="text-center text-success mb-4">View Notes</h3>
+
+
+        <div class="card-body">
+
+            <h5 class="card-title text-success">Title:</h5>
+            <p class="card-text font-weight-bold">{{ note.title }}</p>
+
+            <h5 class="card-title text-success">Content:</h5>
+            <p class="card-text">{{ note.details }}</p>
+            <p class="card-title text-success fw-bold ">Time:</p>
+            <p class="card-text fst-italic">{{ note.time }}</p>
+            <a routerLink="/noteapp"><button  class="btn btn-outline-success">Return</button></a>
+        </div>
+    </div>
+</div>
+
+    

@@ -1,0 +1,41 @@
+<div class="container py-5">
+    <h3 class="text-primary mb-4">Manage Student Receipts</h3>
+  
+    <div class="table-responsive">
+      <table class="table table-striped table-hover align-middle">
+        <thead class="table-primary">
+          <tr>
+            <th scope="col">Image</th>
+            <th scope="col">Student ID</th>
+            <th scope="col">Receipt ID</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let receipt of allreciepts let i = index">
+            <td>
+              <img [src]="receipt.image" alt="Receipt Image" class="img-thumbnail" style="max-width: 100px; max-height: 100px;">
+            </td>
+            <td>{{receipt.studentid}}</td>
+            <td>{{receipt.id}}</td>
+            <td>
+              <span class="badge" 
+                    [ngClass]="{
+                      'bg-success': receipt.status === 'approved', 
+                      'bg-warning text-dark': receipt.status === 'unaproved', 
+                      'bg-danger': receipt.status === 'rejected'
+                    }">
+                {{receipt.status}}
+              </span>
+            </td>
+            <td>
+              <button class="btn btn-success btn-sm me-2" (click)="approve(i)">Approve</button>
+              <button class="btn btn-danger btn-sm" (click)="reject(i)">Reject</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="col-7 mx-auto shadow p-4">
+        <h3 class="text-success">Edit Profile</h3>
+        <hr class="m-5">
+        <p>{{feedbackmsg}}</p>
+        <input type="text" class="form-control my-2 shadow-none" placeholder="Fullname" [(ngModel)]="fullname">
+        <input type="text" class="form-control my-2 shadow-none" placeholder="Email" [(ngModel)]="email" disabled>
+        <input type="text" class="form-control my-2 shadow-none" placeholder="Phonenumber" [(ngModel)]="phonenumber">
+        <label for="confirm">Select Class</label>
+        <select class="form-select my-2" id="class" name="class" [(ngModel)]="selectclass" required>
+            <option value="jss1">JSS1</option>
+            <option value="jss2">JSS2</option>
+            <option value="jss3">JSS3</option>
+            <option value="sss1">SSS1</option>
+            <option value="sss2">SSS2</option>
+            <option value="sss3">SSS3</option>
+          </select>
+
+          <div *ngIf="selectclass === 'sss1'|| selectclass === 'sss2'|| selectclass === 'sss3'">
+            <label for="confirm">Select Department</label>
+          <select class="form-select my-2" id="dept" name="dept" [(ngModel)]="selectdept" required>
+            <option value="science">Science</option>
+            <option value="commercial">Commercial</option>
+            <option value="arts">Arts</option>
+       
+          </select>
+          </div>
+          <label for="gender">Gender</label>
+          <select class="form-select my-2" id="gender" name="gender" [(ngModel)]="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+          <input type="date" class="form-control my-2 shadow-none" placeholder="Date" [(ngModel)]="date">
+        <button (click)="edit()" class="btn btn-outline-success w-100"> Edit</button>
+
+       
+    </div>
+</div>
+
+
+
+

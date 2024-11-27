@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="col-6 mx-auto shadow p-3">
+        <h3 class="text-success text-center">Note App</h3>
+        <div>
+            <form [formGroup]="formnote">
+                <input type="text" class="form-control my-2" placeholder="Title" formControlName="title" name="title">
+                <textarea class="my-2 form-control" placeholder="details" formControlName="details" name="details"></textarea>
+                <button (click)="reactive()" class="btn btn-outline-success w-100">Submit</button>
+                
+            </form>
+        </div>
+    </div>
+
+
+    <div class="container mt-4 ">
+      <h3 class="text-success text-center">Notes</h3>
+        <div *ngFor="let Note of noteArray let i = index">
+          <div class="card mb-3 needed note" >
+            <div class="card-body ">
+                <div  (click)="route(i)">
+                    <h5 class="card-title text-success">{{ Note.title }}</h5>
+                    <p class="card-title text-success fst-italic">{{ Note.time }}</p>
+                </div>
+                <button class="btn btn-sm btn-outline-warning me-1"  (click)="edit(i)" >Edit</button>
+              <button class="btn btn-sm btn-outline-danger"  (click)="delete(i)" >Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+</div>
